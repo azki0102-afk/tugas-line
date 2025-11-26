@@ -1,0 +1,49 @@
+.simple {
+  border-style: solid;
+  color: red;
+}
+
+.line {
+  border-style: solid;
+  border-radius: 10px;
+  color: rgb(255, 0, 157);
+}
+
+.line-2 {
+  border-style: dashed;
+}
+
+.line-3 {
+  border-style: dotted;
+}
+
+.ul {
+  border-style: double;
+}
+.li {
+  border-style: groove;
+}
+
+.loil {
+  border-style: inset;
+}
+.li {
+  border-style: outset;
+}
+
+.loill {
+  border-style: ridge;
+}
+
+.mn {
+  border-style: solid;
+  border-top: 4 red;
+  border-right: 4px blue;
+  border-left: green;
+  border-bottom: left rgb(255, 1, 1);
+}
+
+.div {
+  border-style: solid;
+  border-image: linear-gradient(to left, blue, rgb(0, 0, 0), rgb(94, 255, 0)) 1;
+}

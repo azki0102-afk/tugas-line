@@ -1,0 +1,28 @@
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 0%; */
+  color: white;
+/* background-color: blueviolet; */
+
+}
+
+.bar-2 {
+  display: contents;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: white;
+  background-color: blue;
+}
+
+
+.bar-3{
+
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

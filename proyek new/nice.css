@@ -1,0 +1,36 @@
+.container-hero {
+  margin-left: 5%;
+  margin-right: 5%;
+  /* background-color: red; */
+  background-image: url(./0eda11e8c7f1a6fead52fac4ea0978d7.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border-radius: 10px;
+}
+.momo {
+  color: white;
+}
+
+.dede {
+  color: white;
+}
+
+.mi {
+  background-color: rgb(0, 0, 0);
+}
+
+.-lok {
+  margin-left: 5%;
+  margin-right: 5%;
+  /* background-color: red; */
+  background-image: url(./b358fb1d1ac530cf758f884ec35fbd48.j);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border-radius: 10px;
+}
+
+

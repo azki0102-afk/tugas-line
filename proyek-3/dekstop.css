@@ -1,0 +1,30 @@
+.po {
+  background-color: gray;
+}
+
+.text {
+  background-color: gray;
+}
+
+.text-2 {
+  background-color: gray;
+}
+
+.koi {
+  background-color: gray;
+}
+
+.a {
+  background-color: gray;
+  border: 10px;
+}
+.bar-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loi {
+  display: flex;
+
+  margin-left: 70%;
+}

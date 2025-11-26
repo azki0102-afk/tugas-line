@@ -1,0 +1,51 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  padding-left: ;
+
+  justify-content: space-between;
+  background-color: orangered;
+}
+
+.img {
+  text-align: center;
+}
+
+.a{
+  text-align: center;
+}
+.t {
+  text-align: center;
+}
+
+.btn {
+  text-align: center;
+}
+
+body {
+  background-image: url(Background\ Doodle.png);
+}
+
+.lang {
+  color: orangered;
+}
+
+.s {
+  color: orangered;
+}
+
+.l {
+  color: orangered;
+}
+
+.te {
+  width: 20px;
+}
+
+.d{
+ width: 20px;
+ text-transform: uppercase;
+ 
+  /* background-color: blue; */
+}
