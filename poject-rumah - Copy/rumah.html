@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sejarah Demonstrasi Indonesia</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0d0d0d;color:#f2f2f2}
+
+/* ===== WELCOME SCREEN ===== */
+#welcomeScreen{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.welcome-box{
+  background:#111;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+  max-width:420px;
+  width:90%;
+  border:1px solid #1a1a1a;
+}
+.welcome-box h2{color:#e60000;margin-bottom:10px}
+.welcome-box p{color:#ccc;margin-bottom:15px}
+.welcome-box select,
+.welcome-box button{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  background:#000;
+  color:#f2f2f2;
+  border:1px solid #1a1a1a;
+  border-radius:5px;
+}
+.welcome-box button{
+  background:#e60000;
+  border:none;
+  cursor:pointer;
+}
+
+/* NAVBAR */
+nav{
+  background:#000;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid #1a1a1a;
+}
+.logo{color:#e60000;font-size:1.4em;font-weight:bold}
+.menu-toggle{display:none;color:#e60000;font-size:1.6em;cursor:pointer}
+.nav-links{list-style:none;display:flex;gap:18px}
+.nav-links a{color:#f2f2f2;text-decoration:none;padding:6px 10px}
+.nav-links a:hover{background:#e60000}
+
+/* MARQUEE */
+.marquee-container{
+  background:#111;
+  overflow:hidden;
+  padding:10px 0;
+}
+.teks-gerak{
+  white-space:nowrap;
+  display:inline-block;
+  animation:marquee 15s linear infinite;
+  color:#e60000;
+  font-weight:bold;
+}
+@keyframes marquee{
+  from{transform:translateX(100%)}
+  to{transform:translateX(-100%)}
+}
+
+/* CONTENT */
+.content-section{padding:40px 20px;text-align:center}
+h3{color:#e60000;margin-bottom:12px}
+p{max-width:900px;margin:auto;color:#ccc;line-height:1.8}
+
+/* TIMELINE */
+.timeline{max-width:950px;margin:auto;text-align:left}
+.timeline-item{
+  background:#111;
+  padding:20px;
+  border-left:4px solid #e60000;
+  margin-bottom:20px;
+  border-radius:6px;
+}
+
+/* ALERT */
+.alert-section{
+  text-align:center;
+  padding:35px 20px;
+  background:radial-gradient(circle,#140000,#000);
+}
+.alert-title{color:#e60000;font-size:2em}
+.alert-text{
+  white-space:nowrap;
+  display:inline-block;
+  animation:slide 12s linear infinite;
+  color:#ff1a1a;
+  font-weight:bold;
+}
+@keyframes slide{
+  from{transform:translateX(100%)}
+  to{transform:translateX(-100%)}
+}
+
+/* FOOTER */
+footer{background:#000;text-align:center;padding:15px;color:#777}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-toggle{display:block}
+  .nav-links{
+    position:absolute;top:60px;left:0;width:100%;
+    background:#000;flex-direction:column;display:none
+  }
+  .nav-links.active{display:flex}
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+<div id="welcomeScreen">
+  <div class="welcome-box">
+    <h2 id="welcomeTitle">Selamat Datang</h2>
+    <p id="welcomeText">
+      Wilujeng Sumping • Sugeng Rawuh • Horas • Om Swastiastu • Tabea
+    </p>
+    <select id="langSelect">
+      <option value="id">Bahasa Indonesia</option>
+      <option value="su">Bahasa Sunda</option>
+      <option value="jv">Bahasa Jawa</option>
+    </select>
+    <button onclick="enterSite()">Masuk</button>
+  </div>
+</div>
+
+<nav>
+  <div class="logo"><i class="fa-solid fa-flag"></i> DEMO</div>
+  <div class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></div>
+  <ul class="nav-links" id="navMenu">
+    <li><a>Beranda</a></li>
+    <li><a>Sejarah</a></li>
+    <li><a>Kontak</a></li>
+  </ul>
+</nav>
+
+<div class="marquee-container">
+  <span class="teks-gerak">
+    INDONESIA DARURAT • SUARA RAKYAT • KEADILAN SOSIAL •
+  </span>
+</div>
+
+<!-- PENJELASAN -->
+<div class="content-section">
+  <h3>Apa itu Demonstrasi?</h3>
+  <p>
+    Demonstrasi adalah bentuk penyampaian pendapat di muka umum yang dilakukan
+    oleh warga negara untuk menyuarakan aspirasi, kritik, serta tuntutan terhadap
+    kebijakan pemerintah atau kondisi sosial. Di Indonesia, hak untuk
+    berdemonstrasi dijamin oleh Undang-Undang Dasar 1945 sebagai bagian dari
+    kehidupan demokrasi.
+  </p>
+</div>
+
+<div class="content-section">
+  <h3>Sejarah Demonstrasi Indonesia</h3>
+  <p>
+    Sejarah demonstrasi di Indonesia sudah dimulai sejak awal kemerdekaan.
+    Mahasiswa dan masyarakat kerap menjadi motor penggerak perubahan sosial dan
+    politik. Demonstrasi tidak hanya menjadi simbol perlawanan, tetapi juga
+    sarana pendidikan politik bagi rakyat.
+  </p>
+</div>
+
+<div class="content-section">
+  <h3>Timeline Peristiwa Penting</h3>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <strong>1945–1959 (Masa Awal Kemerdekaan)</strong>
+      <p>
+        Demonstrasi digunakan untuk mengawal arah negara baru dan menuntut
+        kesejahteraan rakyat di tengah kondisi ekonomi dan politik yang belum stabil.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>1966 – Tritura</strong>
+      <p>
+        Gerakan mahasiswa menyuarakan Tiga Tuntutan Rakyat (Tritura) yang berujung
+        pada berakhirnya Orde Lama dan lahirnya Orde Baru.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>1974 – Peristiwa Malari</strong>
+      <p>
+        Demonstrasi menolak dominasi modal asing dan ketimpangan ekonomi.
+        Peristiwa ini menunjukkan meningkatnya kritik terhadap pemerintahan.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>1998 – Reformasi</strong>
+      <p>
+        Gelombang demonstrasi nasional menuntut reformasi politik dan keadilan sosial,
+        yang berujung pada berakhirnya pemerintahan Orde Baru dan dimulainya Era Reformasi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>2019 – Reformasi Dikorupsi</strong>
+      <p>
+        Mahasiswa dan masyarakat menyuarakan penolakan terhadap sejumlah kebijakan
+        yang dianggap melemahkan demokrasi dan keadilan.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>Era Modern</strong>
+      <p>
+        Demonstrasi terus berlangsung dengan isu buruh, lingkungan, pendidikan,
+        dan transparansi pemerintah sebagai bentuk kontrol sosial dalam negara demokrasi.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<footer>© 2025 Sejarah Demonstrasi Indonesia</footer>
+
+<script>
+const texts={
+  id:{
+    title:"Selamat Datang",
+    text:"Wilujeng Sumping • Sugeng Rawuh • Horas • Om Swastiastu • Tabea"
+  },
+  su:{
+    title:"Wilujeng Sumping",
+    text:"Wilujeng sumping ka situs sajarah demonstrasi Indonesia"
+  },
+  jv:{
+    title:"Sugeng Rawuh",
+    text:"Sugeng rawuh ing situs sejarah demonstrasi Indonesia"
+  }
+};
+
+function enterSite(){
+  const lang=document.getElementById("langSelect").value;
+  document.getElementById("welcomeTitle").textContent=texts[lang].title;
+  document.getElementById("welcomeText").textContent=texts[lang].text;
+  setTimeout(()=>{
+    document.getElementById("welcomeScreen").style.display="none";
+  },500);
+}
+
+document.getElementById("menuToggle").onclick=()=>{
+  document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

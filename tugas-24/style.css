@@ -1,0 +1,48 @@
+.l {
+  border-style: solid;
+
+  width: 400px;
+  height: 60px;
+}
+
+.ccc {
+  background-color: purple;
+  width: 400px;
+  height: 40px;
+}
+
+.img {
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.image {
+  max-width: 200px;
+  margin-left: 207.14px;
+  position: relative;
+  margin-top: 29px;
+  height: auto;
+}
+
+.asZ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ALL {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  align-items: center;
+}

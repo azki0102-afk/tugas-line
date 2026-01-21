@@ -1,321 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Natural Beauty of Indonesia | Dark Edition</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- LINK FONT AWESOME UNTUK LOGO -->
-    <link rel="stylesheet" href="cdnjs.cloudflare.com" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEXA drift</title>
 
-    <style>
-      /* --- Dasar & Reset --- */
-      body,
-      h1,
-      h3,
-      h4,
-      p,
-      ul {
-        margin: 0;
-        padding: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      body {
-        overflow-x: hidden;
-        background-color: #000000;
-        color: #ffffff;
-      }
+<!-- ===== FAVICON ELANG (SEPERTI GOOGLE) ===== -->
+<link rel="icon" type="image/png" sizes="32x32" href="./elang-removebg-preview.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./elang-removebg-preview.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./elang-removebg-preview.png">
 
-      /* --- STYLE SAMBUTAN (MODAL) --- */
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-        transition: opacity 0.5s ease;
-      }
-      .modal-content {
-        background: #111;
-        padding: 40px;
-        border: 2px solid #ffd700;
-        border-radius: 20px;
-        text-align: center;
-        max-width: 450px;
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-      }
-      .modal-content h2 {
-        color: #ffd700;
-        margin-bottom: 15px;
-        font-size: 2em;
-      }
-      .modal-content p {
-        color: #ccc;
-        margin-bottom: 25px;
-        line-height: 1.6;
-      }
-      .btn-masuk {
-        background: #ffd700;
-        color: #000;
-        border: none;
-        padding: 12px 30px;
-        font-weight: bold;
-        border-radius: 30px;
-        cursor: pointer;
-        font-size: 1em;
-        transition: 0.3s;
-      }
-      .btn-masuk:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px #ffd700;
-      }
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
 
-      /* --- Navbar --- */
-      nav {
-        background-color: #1a1a1a;
-        color: white;
-        padding: 15px 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #333;
-      }
-      .logo {
-        font-size: 2em;
-        color: #ffd700;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      ul.nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
-      ul.nav-links li a {
-        color: #cccccc;
-        text-decoration: none;
-        font-weight: 500;
-      }
+<style>
+body,h1,h3,h4,p,ul{margin:0;padding:0;font-family:"Segoe UI",Tahoma}
+body{background:#000;color:#fff;overflow-x:hidden}
 
-      /* --- Container Teks Diam --- */
-      .statis-container {
-        width: 100%;
-        background-color: #111111;
-        padding: 15px 0;
-        text-align: center;
-        border-top: 1px solid #222;
-        border-bottom: 1px solid #222;
-      }
-      .teks-diam {
-        font-size: 1.1em;
-        color: #ffd700;
-        font-weight: 600;
-        letter-spacing: 2px;
-      }
+/* ===== MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;justify-content:center;align-items:center;z-index:2000}
+.modal-content{background:#111;padding:40px;border:2px solid #ffd700;border-radius:20px;text-align:center;max-width:450px}
+.btn-masuk{background:#ffd700;border:none;padding:12px 30px;border-radius:30px;font-weight:bold;cursor:pointer}
 
-      /* --- Animasi Teks Bergerak --- */
-      .marquee-container {
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        background: #000;
-        border-top: 2px solid #ffd700;
-        border-bottom: 2px solid #ffd700;
-      }
-      .teks-destinasi-hitam {
-        display: inline-block;
-        padding-left: 100%;
-        animation: gerak-kiri 20s linear infinite;
-        color: #ffffff;
-        text-decoration: underline;
-        font-weight: bold;
-        font-size: 1.3em;
-        padding-top: 12px;
-        padding-bottom: 12px;
-      }
-      @keyframes gerak-kiri {
-        0% {
-          transform: translate(0, 0);
-        }
-        100% {
-          transform: translate(-100%, 0);
-        }
-      }
+/* ===== NAVBAR ===== */
+nav{
+  background:#1a1a1a;
+  padding:15px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-      /* --- Slider Gambar --- */
-      .alam {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding: 40px 20px;
-        scrollbar-width: none;
-      }
-      .alam::-webkit-scrollbar {
-        display: none;
-      }
-      .alam img {
-        border-radius: 15px;
-        height: 250px;
-        flex: 0 0 auto;
-        border: 1px solid #333;
-        transition: 0.5s;
-      }
+/* LOGO ELANG */
+.logo img{
+  height:40px;
+  width:auto;
+  filter:drop-shadow(0 0 6px gold);
+}
 
-      /* --- Reveal Text --- */
-      .reveal-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 100px 20px;
-      }
-      h4.reveal-text {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 1.5s ease-out;
-        max-width: 800px;
-        text-align: center;
-        color: #ffffff;
-        font-size: 1.6em;
-        font-style: italic;
-      }
-      h4.reveal-text.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
+/* MENU */
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+.nav-menu a{
+  text-decoration:none;
+  color:#ccc;
+  font-weight:500;
+}
 
-      .penutup {
-        background-color: #000;
-        color: #888;
-        padding: 40px 20px;
-        text-align: center;
-        border-top: 1px solid #222;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- MODAL SAMBUTAN -->
-    <div class="modal-overlay" id="welcomeModal">
-      <div class="modal-content">
-        <h2>Selamat Datang!</h2>
-        <p>
-          Terima kasih telah berkunjung ke The Natural Beauty of Indonesia. Mari
-          jelajahi keajaiban nusantara bersama kami.
-        </p>
-        <button class="btn-masuk" onclick="closeModal()">
-          Mulai Eksplorasi
-        </button>
-      </div>
+/* HAMBURGER */
+.menu-toggle{
+  display:none;
+  font-size:1.8em;
+  cursor:pointer;
+  color:#ffd700;
+}
+
+/* LANGUAGE */
+.lang-switch button{
+  background:transparent;
+  border:1px solid #ffd700;
+  color:#ffd700;
+  padding:6px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.8em
+}
+.lang-switch .active{background:#ffd700;color:#000;font-weight:bold}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:15px 20px}
+  .nav-menu{
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:#111;
+    flex-direction:column;
+    width:180px;
+    padding:15px;
+    border-radius:12px;
+    display:none;
+  }
+  .nav-menu.show{display:flex}
+  .menu-toggle{display:block}
+}
+
+/* ===== STATIS ===== */
+.statis-container{background:#111;padding:15px;text-align:center;border-top:1px solid #222;border-bottom:1px solid #222}
+.teks-diam{color:#ffd700;letter-spacing:2px;font-weight:600}
+
+/* ===== MARQUEE ===== */
+.marquee-container{
+  width:100%;
+  overflow:hidden;
+  border-top:2px solid #ffd700;
+  border-bottom:2px solid #ffd700;
+}
+.teks-destinasi-hitam{
+  white-space:nowrap;
+  padding-left:100%;
+  animation:marquee 25s linear infinite;
+  font-size:1.3em;
+  font-weight:bold;
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+
+/* GAMBAR */
+.alam{display:flex;gap:20px;overflow-x:auto;padding:40px 20px}
+.alam img{height:250px;border-radius:15px;border:1px solid #333}
+.alam::-webkit-scrollbar{display:none}
+
+/* REVEAL */
+.reveal-container{padding:100px 20px;text-align:center}
+.reveal-text{opacity:0;transform:translateY(40px);transition:1.5s;font-size:1.6em;font-style:italic}
+.reveal-text.active{opacity:1;transform:translateY(0)}
+
+.penutup{text-align:center;padding:40px;color:#888;border-top:1px solid #222}
+</style>
+</head>
+
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="welcomeModal">
+  <div class="modal-content">
+    <h2 data-key="welcome">Selamat Datang!</h2>
+    <p data-key="welcome_desc">Terima kasih telah berkunjung.</p>
+    <button class="btn-masuk" onclick="closeModal()" data-key="start">Mulai</button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="./elang-removebg-preview.png" alt="Logo Elang">
+  </div>
+
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Hubungi</a></li>
+    <li><a href="#">drift car</a></li>
+    <li><a href="#">Login</a></li>
+  </ul>
+
+  <div style="display:flex;gap:15px;align-items:center">
+    <div class="lang-switch">
+      <button id="idBtn" class="active" onclick="setLang('id')">ID</button>
+      <button id="enBtn" onclick="setLang('en')">EN</button>
     </div>
-
-    <!-- Navbar -->
-    <nav>
-      <div class="logo"><i class="fa-brands fa-atlassian"></i></div>
-      <ul class="nav-links">
-   <i class="fa-solid fa-bars"></i>
-      </ul>
-    </nav>
-
-    <div class="statis-container">
-      <span class="teks-diam"
-        >THE NATURAL BEAUTY OF INDONESIA — EKSPLORASI NUSANTARA 2026</span
-      >
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
     </div>
+  </div>
+</nav>
 
-    <div style="text-align: center; padding: 60px 20px">
-      <h3 style="color: #ffd700; font-weight: 800; letter-spacing: 3px">
-        MAHAKARYA ALAM INDONESIA
-      </h3>
-      <div style="margin-top: 40px">
-        <img
-          src="./elang-removebg-preview.png"
-          alt="Garuda"
-          width="280px"
-          style="filter: drop-shadow(0 0 15px rgba(230, 255, 10, 0.3))"
-        />
-        <h1
-          style="
-            font-size: 1.8em;
-            margin-top: 30px;
-            font-weight: 300;
-            color: #eee;
-          "
-        >
-          Negara Kepulauan dengan Keindahan yang Memukau Dunia
-        </h1>
-      </div>
-    </div>
+<div class="statis-container">
+  <span class="teks-diam" data-key="tagline">
+  APEXA
+  </span>
+</div>
 
-    <div class="marquee-container">
-      <div class="teks-destinasi-hitam">
-        geser untuk eksplorasi keindahan surga yg tersembunyi di indonesia
-        indonesia menuggumu!
-      </div>
-    </div>
+<!-- HERO -->
+<div style="text-align:center;padding:60px">
+  <h3 style="color:#ffd700;letter-spacing:3px" data-key="hero_sub">
+    MAHAKARYA ALAM INDONESIA
+  </h3>
 
-    <div class="alam" id="alam-section">
-      <img src="./4bb72b582214babe8af8fd9150067f63.jpg" alt="1" width="350px" />
-      <img src="./7a71cf392fd14b2681362d0c2c0bad8b.jpg" alt="2" width="350px" />
-      <img src="./e289f66f7d97ace1c16d2ac331a8689d.jpg" alt="3" width="350px" />
-      <img src="./a1d19ef93aa9cfec3615b5932173dbc6.jpg" alt="4" width="350px" />
-      <img src="./c0e5a7648ac9fdb3b2e850533660424f.jpg" alt="5" width="350px" />
-      <img src="./0246f7c0f8feb49d74e77e601e1e171f.jpg" alt="6" width="350px" />
-      <img src="./81e3790214583b8a0015f0bc1a625a7f.jpg" alt="7" width="350px" />
-      <img src="./bali.jpg" alt="Bali" width="350px" />
-    </div>
+  <!-- LOGO ELANG BESAR -->
+  <img src="./elang-removebg-preview.png"
+       width="280"
+       alt="Elang Indonesia"
+       style="margin:40px 0;filter:drop-shadow(0 0 15px gold)">
 
-    <div class="reveal-container">
-      <h4 class="reveal-text" id="reveal-target">
-        "Indonesia: Zamrud Khatulistiwa yang terangkai dari 17.000 pulau. Dari
-        pesisir berpasir putih hingga tebing karang yang gagah, setiap pulau
-        menyimpan cerita, budaya, dan keajaiban alam."
-      </h4>
-    </div>
+  <h1 style="font-weight:300" data-key="hero_title">
+    Negara Kepulauan yang Memukau Dunia
+  </h1>
+</div>
 
-    <div class="penutup">
-      <h4>
-        WEB INI HASIL KERJASAMA ANTARA
-        <span style="color: #ffd700; font-weight: bold">AZKI</span> DAN
-        <span style="color: #ffd700; font-weight: bold">AI</span>
-      </h4>
-      <p><i class="fa-brands fa-instagram"></i>Azki</p>
-    </div>
+<div class="marquee-container">
+  <div class="teks-destinasi-hitam" data-key="marquee">
+    geser untuk eksplorasi keindahan indonesia
+  </div>
+</div>
 
-    <script>
-      // Fungsi menutup modal
-      function closeModal() {
-        const modal = document.getElementById("welcomeModal");
-        modal.style.opacity = "0";
-        setTimeout(() => {
-          modal.style.display = "none";
-        }, 500);
-      }
+<div class="reveal-container">
+  <h4 class="reveal-text" id="reveal" data-key="quote">
+    Indonesia adalah zamrud khatulistiwa.
+  </h4>
+</div>
 
-      function revealOnScroll() {
-        const revealElement = document.getElementById("reveal-target");
-        const windowHeight = window.innerHeight;
-        const elementTop = revealElement.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-          revealElement.classList.add("active");
-        }
-      }
-      window.addEventListener("scroll", revealOnScroll);
-      revealOnScroll();
-    </script>
-  </body>
+<div class="penutup">
+  <h4 data-key="footer">KERJASAMA AZKI × AI</h4>
+</div>
+
+<script>
+const text={
+ id:{
+  welcome:"Selamat Datang!",
+  welcome_desc:"Terima kasih telah berkunjung.",
+  start:"Mulai",
+  tagline:"THE NATURAL BEAUTY OF INDONESIA — 2026",
+  hero_sub:"MAHAKARYA ALAM INDONESIA",
+  hero_title:"Negara Kepulauan yang Memukau Dunia",
+  marquee:"geser untuk eksplorasi keindahan indonesia",
+  quote:"Indonesia adalah zamrud khatulistiwa.",
+  footer:"KERJASAMA AZKI × AI"
+ },
+ en:{
+  welcome:"Welcome!",
+  welcome_desc:"Thank you for visiting.",
+  start:"Start",
+  tagline:"THE NATURAL BEAUTY OF INDONESIA — 2026",
+  hero_sub:"INDONESIA'S NATURAL MASTERPIECE",
+  hero_title:"An Archipelago That Amazes the World",
+  marquee:"scroll to explore indonesia's beauty",
+  quote:"Indonesia is the emerald of the equator.",
+  footer:"COLLABORATION AZKI × AI"
+ }
+};
+
+function setLang(lang){
+ document.querySelectorAll("[data-key]").forEach(el=>{
+  el.textContent=text[lang][el.dataset.key];
+ });
+ idBtn.classList.remove("active");
+ enBtn.classList.remove("active");
+ document.getElementById(lang+"Btn").classList.add("active");
+}
+
+function closeModal(){
+ document.getElementById("welcomeModal").style.display="none";
+}
+
+function toggleMenu(){
+ document.getElementById("navMenu").classList.toggle("show");
+}
+
+window.addEventListener("scroll",()=>{
+ const el=document.getElementById("reveal");
+ if(el.getBoundingClientRect().top<window.innerHeight-100){
+  el.classList.add("active");
+ }
+});
+</script>
+
+</body>
 </html>

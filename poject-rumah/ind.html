@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Natural beauty of Indonesia</title>
+
+    <!-- Memperbaiki URL CDN Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="cdnjs.cloudflare.com"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+VUta3XFpMWSyBLPCIxDYw4CgqWAIrZ9dgab/UqNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* Reset CSS dasar agar tampilan konsisten */
+      body, h1, h3, p, ul {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+          padding-bottom: 50px; 
+      }
+
+      /* --- Styling Navbar --- */
+      nav {
+        background-color: #006633; /* Hijau khas Indonesia */
+        color: white;
+        padding: 10px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky; /* Navbar tetap di atas saat scroll */
+        top: 0;
+        z-index: 1000;
+      }
+      .logo { font-size: 1.5em; font-weight: bold; }
+      ul.nav-links { list-style: none; display: flex; gap: 20px; }
+      ul.nav-links li a { color: white; text-decoration: none; padding: 5px 10px; transition: background-color 0.3s; }
+      ul.nav-links li a:hover { background-color: #004d26; border-radius: 4px; }
+
+      /* --- Styling Teks Bergerak --- */
+      .marquee-container {
+        width: 100%; overflow: hidden; background-color: #e0f7fa; padding: 10px 0;
+        margin-top: 0px; text-align: center;
+      }
+      .teks-gerak {
+        display: inline-block; white-space: nowrap; transform: translateX(100%); 
+        animation: gerak-kanan-kiri 15s linear infinite; 
+        font-size: 1.2em; color: #00796b; font-weight: bold;
+      }
+      @keyframes gerak-kanan-kiri {
+        0% { transform: translateX(100vw); }
+        100% { transform: translateX(-100%); }
+      }
+
+      /* --- Styling Konten Lainnya --- */
+      .content-section {
+        padding: 20px;
+        text-align: center;
+      }
+      .emi input#oo { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 250px;}
+
+      .alam {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap; 
+        
+        /* CSS Awal untuk Animasi Scroll: Sembunyikan dan Posisikan di bawah */
+        opacity: 0;
+        transform: translateY(50px); /* Mulai 50px di bawah posisi normal */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      
+      /* CSS yang Ditambahkan oleh JavaScript saat elemen terlihat */
+      .alam.is-visible {
+        opacity: 1;
+        transform: translateY(0); /* Kembali ke posisi normal (efek naik ke atas) */
+      }
+      
+      .alam img {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .alam img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">Pesona Indonesia</div>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#destinasi">Destinasi</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+
+    <!-- Kontainer Teks Bergerak -->
+    <div class="marquee-container">
+      <span class="teks-gerak">
+         Selamat datang di website Indonesia! Dimana tempat pesona alam di Indonesia yang indah dapat ditemukan di sini.
+      </span>
+    </div>
+    
+    <!-- Konten Utama Halaman Statis -->
+    <div class="asas content-section" style="color: black">
+      <h3>
+        Dimana tempat pesona alam di Indonesia yang indah, hanya ditemukan di
+        website ini saja (The Natural beauty of Indonesia)
+      </h3>
+    </div>
+    <div class="img-2 content-section">
+      <img
+        src="./c026f7719c8b1137e44183f85d44e239-removebg-preview (1).png"
+        alt="Garuda Pancasila"
+        width="400px"
+        id="garuda-img"
+      />
+    </div>
+    <div class="text-3 content-section">
+      <p>
+        "Indonesia merupakan negara yang kaya akan alamnya, karena itu banyak
+        wisata turis asing yang datang ke Indonesia yang ingin melihat keindahan
+        alam Indonesia"
+      </p>
+    </div>
+    <div class="text-4 content-section">
+      <p>
+        'Disini aku akan mengajak kalian untuk melihat keindahan alam Indonesia
+        melalui web ini'
+      </p>
+    </div>
+    <div
+      class="emi content-section"
+      style="display: flex; align-items: center; justify-content: center"
+    >
+      <input id="oo" name="name" placeholder="cari destinasi alam " />
+    </div>
+    
+    <!-- Kontainer Gambar Alam (Target Animasi Scroll) -->
+    <div
+      class="alam content-section" id="alam-section"
+    >
+      <img
+        src="./4bb72b582214babe8af8fd9150067f63.jpg"
+        alt="Destinasi 1"
+        width="200px"
+      />
+      <img
+        src="./7a71cf392fd14b2681362d0c2c0bad8b.jpg"
+        alt="Destinasi 2"
+        width="200px"
+      />
+      <img
+        src="./a1d19ef93aa9cfec3615b5932173dbc6.jpg"
+        alt="Destinasi 3"
+        width="200px"
+      />
+      <img
+        src="./c0e5a7648ac9fdb3b2e850533660424f.jpg"
+        alt="Destinasi 4"
+        width="200px"
+      />
+      <img
+        src="./0246f7c0f8feb49d74e77e601e1e171f.jpg"
+        alt="Destinasi 5"
+        width="200px"
+      />
+      <img src="." alt="">
+    </div>
+    <div class="asd"></div>
+
+    <!-- JavaScript untuk menangani efek scroll-reveal -->
+    <script>
+        // Fungsi untuk memeriksa apakah elemen sudah terlihat di layar
+        function checkVisibility() {
+            const alamSection = document.getElementById('alam-section');
+            // getBoundingClientRect() memberikan posisi elemen relatif terhadap viewport
+            const rect = alamSection.getBoundingClientRect();
+            
+            // Periksa apakah bagian atas elemen alam berada di dalam atau di atas area viewport yang terlihat
+            if (rect.top <= window.innerHeight - 100) { 
+                alamSection.classList.add('is-visible'); // Tambahkan kelas CSS baru
+                // window.removeEventListener('scroll', checkVisibility); // Opsional: Matikan event setelah muncul
+            }
+        }
+
+        // Tambahkan event listener untuk memanggil fungsi saat halaman di-scroll
+        window.addEventListener('scroll', checkVisibility);
+        
+        // Panggil fungsi saat halaman pertama kali dimuat
+        checkVisibility();
+    </script>
+  </body>
+</html>

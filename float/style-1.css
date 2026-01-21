@@ -1,0 +1,30 @@
+.imk img {
+  background-color: rgb(0, 217, 255);
+  float: right;
+}
+
+.box {
+  width: 400px;
+  height: 400px;
+  background-color: blueviolet;
+}
+
+
+.box-2{
+  width: 400px;
+  height: 400px;
+  background-color: rgb(0, 0, 0);
+  
+  margin: 4px;
+  clear: left;
+}
+
+
+.tiga img {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(0, 0, 0);
+  
+  margin: 4px;
+  clear: left;
+}

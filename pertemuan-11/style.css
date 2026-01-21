@@ -1,0 +1,20 @@
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+.box-1{
+     background-color: rgb(45, 8, 255);
+     width: 400px;
+     padding: 20px;
+     border: 5px solid rgb(0, 0, 0);
+     box-sizing: content-box;
+}
+
+.box-2{
+    background-color: rgb(228, 0, 0);
+    width: 400px;
+    padding: 20px;
+    border: 5px solid blueviolet;
+    box-sizing: border-box;
+}

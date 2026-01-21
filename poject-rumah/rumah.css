@@ -1,3 +1,4 @@
+/* Pengaturan dasar untuk mereset margin default */
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +33,7 @@ body {
 }
 
 .nav-links a {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 5px 10px;
   transition: color 0.3s;
@@ -46,74 +47,73 @@ body {
   /* background-color: black; */
 }
 
-.logo {
-  /* background-color: black; */
-}
-
 main {
   padding: 20px;
 }
 
-.da {
+.ss {
   display: flex;
-  justify-content: space-between;
-  background-color: aquamarine;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
-.img {
-  /* display: fl
-justify-content: space-between; */
+.w {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
-.loid {
+.gg {
   display: flex;
-  align-items:;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background-image: url(./images.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.wari {
+  display: flex;
+  align-items: center;
+  margin-right: 20%;
 }
 
 .ddd {
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 20%;
 }
 
-.za {
+.img{
   display: flex;
   align-items: center;
   justify-content: center;
-
+  margin-top: 90px;
+ 
   gap: 40px;
+  background-color: white;
 }
 
-.d {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-}
-
-.img-1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-}
-
-.az {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.za {
-  display: flex;
-
-  justify-content: center;
-  margin-left: 10%;
-}
-
-.piol{
-  display: flex;
+.text-1{
   text-align: center;
-  justify-content: center;
+ background-color: white;
+}
+.sa{
+  background-color: white;
+}
+
+.semua-div{
+  background-color: white;
+}
+
+.ald{
+display: flex;
+align-items: center;
+background-color: white;
+float: right;
 }

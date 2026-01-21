@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sejarah Perang Dunia II - Nazi Jerman | World War II</title>
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+
+<style>
+body,h1,h2,h3,h4,p,ul{margin:0;padding:0;font-family:"Segoe UI",Tahoma}
+body{background:#000;color:#fff;overflow-x:hidden}
+
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;justify-content:center;align-items:center;
+  z-index:2000
+}
+.modal-content{
+  background:#111;
+  padding:40px;
+  border:2px solid #ff0000;
+  border-radius:20px;
+  text-align:center;
+  max-width:450px
+}
+.btn-masuk{
+  background:#ff0000;
+  color:#fff;
+  border:none;
+  padding:12px 30px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer
+}
+
+/* NAVBAR */
+nav{
+  background:#111;
+  padding:15px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.logo{font-size:2em;color:#ff0000}
+.nav-menu{list-style:none;display:flex;gap:25px}
+.nav-menu a{text-decoration:none;color:#ccc}
+.menu-toggle{display:none;font-size:1.8em;cursor:pointer;color:#ff0000}
+
+/* LANGUAGE */
+.lang-switch button{
+  background:transparent;
+  border:1px solid #ff0000;
+  color:#ff0000;
+  padding:6px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:.8em
+}
+.lang-switch .active{
+  background:#ff0000;
+  color:#fff;
+  font-weight:bold
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:15px 20px}
+  .nav-menu{
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:#111;
+    flex-direction:column;
+    width:180px;
+    padding:15px;
+    border-radius:12px;
+    display:none;
+  }
+  .nav-menu.show{display:flex}
+  .menu-toggle{display:block}
+}
+
+/* STATIS */
+.statis-container{
+  background:#111;
+  padding:15px;
+  text-align:center;
+  border-top:1px solid #300;
+  border-bottom:1px solid #300
+}
+.teks-diam{
+  color:#ff0000;
+  letter-spacing:2px;
+  font-weight:600
+}
+
+/* LOGO TENGAH + EFEK MERAH */
+.loi{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:50px 0;
+}
+.loi img{
+  width:220px;
+  animation:redPulse 2.5s infinite alternate;
+  filter:
+    drop-shadow(0 0 10px rgba(255,0,0,.8))
+    drop-shadow(0 0 30px rgba(255,0,0,.6))
+    drop-shadow(0 0 60px rgba(255,0,0,.4));
+}
+@keyframes redPulse{
+  from{
+    transform:scale(1);
+    filter:
+      drop-shadow(0 0 10px rgba(255,0,0,.6))
+      drop-shadow(0 0 25px rgba(255,0,0,.5));
+  }
+  to{
+    transform:scale(1.08);
+    filter:
+      drop-shadow(0 0 25px rgba(255,0,0,1))
+      drop-shadow(0 0 60px rgba(255,0,0,.9));
+  }
+}
+
+/* MARQUEE */
+.marquee-container{
+  width:100%;
+  overflow:hidden;
+  border-top:2px solid #ff0000;
+  border-bottom:2px solid #ff0000;
+}
+.teks-destinasi-hitam{
+  white-space:nowrap;
+  padding-left:100%;
+  animation:marquee 22s linear infinite;
+  font-size:1.3em;
+  font-weight:bold;
+  color:#ff0000;
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+
+/* CONTENT */
+.content{
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
+  line-height:1.8
+}
+.content h2{
+  color:#ff0000;
+  margin-top:40px
+}
+.content ul{margin-left:20px}
+
+/* REVEAL */
+.reveal-container{padding:80px 20px;text-align:center}
+.reveal-text{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1.5s;
+  font-size:1.4em;
+  font-style:italic;
+  color:#ff4444
+}
+.reveal-text.active{
+  opacity:1;
+  transform:translateY(0)
+}
+
+.penutup{
+  text-align:center;
+  padding:40px;
+  color:#777;
+  border-top:1px solid #300
+}
+</style>
+</head>
+
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="welcomeModal">
+  <div class="modal-content">
+    <h2 data-key="welcome">Selamat Datang</h2>
+    <p data-key="welcome_desc">Website edukasi sejarah</p>
+    <button class="btn-masuk" onclick="closeModal()" data-key="start">Masuk</button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo"><i class="fa-solid fa-landmark"></i></div>
+
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">History</a></li>
+    <li><a href="#">Education</a></li>
+  </ul>
+
+  <div style="display:flex;gap:15px;align-items:center">
+    <div class="lang-switch">
+      <button id="idBtn" class="active" onclick="setLang('id')">ID</button>
+      <button id="enBtn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<div class="statis-container">
+  <span class="teks-diam" data-key="tagline">
+    SEJARAH PERANG DUNIA II — NAZI JERMAN
+  </span>
+</div>
+
+<!-- LOGO -->
+<div class="loi">
+  <img src="./logo_nzi-removebg-preview.png" alt="Historical Logo">
+</div>
+
+<!-- HERO -->
+<div style="text-align:center;padding:40px">
+  <h3 style="color:#ff0000;letter-spacing:3px" data-key="hero_sub">
+    SEJARAH PERANG DUNIA II
+  </h3>
+  <h1 style="font-weight:300" data-key="hero_title">
+    Nazi Jerman dan Adolf Hitler
+  </h1>
+</div>
+
+<div class="marquee-container">
+  <div class="teks-destinasi-hitam" data-key="marquee">
+    scroll untuk mempelajari sejarah perang dunia II
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+  <h2 data-key="s1_title">Mengapa Perang Dunia II Dimulai?</h2>
+  <p data-key="s1_text">
+    Perang Dunia II dimulai tahun 1939 ketika Nazi Jerman menyerang Polandia.
+    Penyebab utamanya adalah ketidakpuasan terhadap Perjanjian Versailles.
+  </p>
+
+  <h2 data-key="s2_title">Mengapa Adolf Hitler Membenci Orang Yahudi?</h2>
+  <p data-key="s2_text">
+    Kebencian Hitler berasal dari ideologi rasis dan antisemitisme.
+    Orang Yahudi dijadikan kambing hitam tanpa dasar fakta.
+  </p>
+
+  <h2 data-key="s3_title">Musuh-Musuh Nazi Jerman</h2>
+  <ul>
+    <li>Inggris dan Prancis</li>
+    <li>Uni Soviet</li>
+    <li>Amerika Serikat</li>
+    <li>Kelompok perlawanan Eropa</li>
+  </ul>
+
+  <h2 data-key="s4_title">Apa yang Dilakukan Nazi Selama Perang?</h2>
+  <ul>
+    <li>Invasi dan pendudukan negara Eropa</li>
+    <li>Propaganda besar-besaran</li>
+    <li>Pemerintahan otoriter</li>
+    <li>Pelanggaran berat kemanusiaan</li>
+  </ul>
+
+  <p style= " :30px;color:#aaa"  data-key="note">
+    Catatan: Ideologi Nazi menyebabkan penderitaan besar dan menjadi pelajaran sejarah penting.
+  </p>
+</div>
+
+<div class="reveal-container">
+  <h4 class="reveal-text" id="reveal" data-key="quote">
+    Sejarah mengajarkan agar tragedi tidak terulang kembali.
+  </h4>
+</div>
+
+<div class="penutup">
+  <h4 data-key="footer">PROYEK SEJARAH — AZKI × AI</h4>
+</div>
+
+<script>
+const text={
+ id:{
+  welcome:"Selamat Datang",
+  welcome_desc:"Website edukasi sejarah Perang Dunia II",
+  start:"Masuk",
+  tagline:"SEJARAH PERANG DUNIA II — NAZI JERMAN",
+  hero_sub:"SEJARAH PERANG DUNIA II",
+  hero_title:"Nazi Jerman dan Adolf Hitler",
+  marquee:"scroll untuk mempelajari sejarah perang dunia II",
+  quote:"Sejarah mengajarkan agar tragedi tidak terulang kembali.",
+  footer:"PROYEK SEJARAH — AZKI × AI",
+  s1_title:"Mengapa Perang Dunia II Dimulai?",
+  s1_text:"Perang Dunia II dimulai tahun 1939 ketika Nazi Jerman menyerang Polandia. Penyebab utamanya adalah ketidakpuasan terhadap Perjanjian Versailles.",
+  s2_title:"Mengapa Adolf Hitler Membenci Orang Yahudi?",
+  s2_text:"Kebencian Hitler berasal dari ideologi rasis dan antisemitisme. Orang Yahudi dijadikan kambing hitam tanpa dasar fakta.",
+  s3_title:"Musuh-Musuh Nazi Jerman",
+  s4_title:"Apa yang Dilakukan Nazi Selama Perang?",
+  note:"Catatan: Ideologi Nazi menyebabkan penderitaan besar dan menjadi pelajaran sejarah penting."
+ },
+ en:{
+  welcome:"Welcome",
+  welcome_desc:"World War II history education website",
+  start:"Enter",
+  tagline:"WORLD WAR II HISTORY — NAZI GERMANY",
+  hero_sub:"WORLD WAR II HISTORY",
+  hero_title:"Nazi Germany and Adolf Hitler",
+  marquee:"scroll to learn about World War II history",
+  quote:"History teaches us so tragedy is never repeated.",
+  footer:"HISTORY PROJECT — AZKI × AI",
+  s1_title:"Why Did World War II Begin?",
+  s1_text:"World War II began in 1939 when Nazi Germany invaded Poland. The main cause was dissatisfaction with the Treaty of Versailles.",
+  s2_title:"Why Did Adolf Hitler Hate Jewish People?",
+  s2_text:"Hitler’s hatred came from racist ideology and antisemitism. Jewish people were falsely blamed.",
+  s3_title:"Enemies of Nazi Germany",
+  s4_title:"What Did the Nazis Do During the War?",
+  note:"Note: Nazi ideology caused immense human suffering and remains a historical lesson."
+ }
+};
+
+function setLang(lang){
+ document.querySelectorAll("[data-key]").forEach(el=>{
+  el.textContent=text[lang][el.dataset.key];
+ });
+ idBtn.classList.remove("active");
+ enBtn.classList.remove("active");
+ document.getElementById(lang+"Btn").classList.add("active");
+}
+
+function closeModal(){
+ document.getElementById("welcomeModal").style.display="none";
+}
+
+function toggleMenu(){
+ document.getElementById("navMenu").classList.toggle("show");
+}
+
+window.addEventListener("scroll",()=>{
+ const el=document.getElementById("reveal");
+ if(el.getBoundingClientRect().top<window.innerHeight-100){
+  el.classList.add("active");
+ }
+});
+</script>
+
+</body>
+</html> 
