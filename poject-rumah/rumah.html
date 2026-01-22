@@ -1,258 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APEXA drift</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEXA drift</title>
 
-<!-- ===== FAVICON ELANG (SEPERTI GOOGLE) ===== -->
-<link rel="icon" type="image/png" sizes="32x32" href="./elang-removebg-preview.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./elang-removebg-preview.png">
-<link rel="apple-touch-icon" sizes="180x180" href="./elang-removebg-preview.png">
+    <!-- ===== FAVICON ELANG (SEPERTI GOOGLE) ===== -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./elang-removebg-preview.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./elang-removebg-preview.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./elang-removebg-preview.png"
+    />
 
-<!-- FONT AWESOME -->
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
 
-<style>
-body,h1,h3,h4,p,ul{margin:0;padding:0;font-family:"Segoe UI",Tahoma}
-body{background:#000;color:#fff;overflow-x:hidden}
+    <style>
+      body,
+      h1,
+      h3,
+      h4,
+      p,
+      ul {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma;
+      }
+      body {
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
 
-/* ===== MODAL ===== */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;justify-content:center;align-items:center;z-index:2000}
-.modal-content{background:#111;padding:40px;border:2px solid #ffd700;border-radius:20px;text-align:center;max-width:450px}
-.btn-masuk{background:#ffd700;border:none;padding:12px 30px;border-radius:30px;font-weight:bold;cursor:pointer}
+      /* ===== MODAL ===== */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+      }
+      .modal-content {
+        background: #111;
+        padding: 40px;
+        border: 2px solid #ffd700;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 450px;
+      }
+      .btn-masuk {
+        background: #ffd700;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-/* ===== NAVBAR ===== */
-nav{
-  background:#1a1a1a;
-  padding:15px 50px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+      /* ===== NAVBAR ===== */
+      nav {
+        background: #1a1a1a;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-/* LOGO ELANG */
-.logo img{
-  height:40px;
-  width:auto;
-  filter:drop-shadow(0 0 6px gold);
-}
+      /* LOGO ELANG */
+      .logo img {
+        height: 40px;
+        width: auto;
+        filter: drop-shadow(0 0 6px gold);
+      }
 
-/* MENU */
-.nav-menu{
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-.nav-menu a{
-  text-decoration:none;
-  color:#ccc;
-  font-weight:500;
-}
+      /* MENU */
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+      }
+      .nav-menu a {
+        text-decoration: none;
+        color: #ccc;
+        font-weight: 500;
+      }
 
-/* HAMBURGER */
-.menu-toggle{
-  display:none;
-  font-size:1.8em;
-  cursor:pointer;
-  color:#ffd700;
-}
+      /* HAMBURGER */
+      .menu-toggle {
+        display: none;
+        font-size: 1.8em;
+        cursor: pointer;
+        color: #ffd700;
+      }
 
-/* LANGUAGE */
-.lang-switch button{
-  background:transparent;
-  border:1px solid #ffd700;
-  color:#ffd700;
-  padding:6px 14px;
-  border-radius:20px;
-  cursor:pointer;
-  font-size:.8em
-}
-.lang-switch .active{background:#ffd700;color:#000;font-weight:bold}
+      /* LANGUAGE */
+      .lang-switch button {
+        background: transparent;
+        border: 1px solid #ffd700;
+        color: #ffd700;
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      .lang-switch .active {
+        background: #ffd700;
+        color: #000;
+        font-weight: bold;
+      }
 
-/* MOBILE */
-@media(max-width:768px){
-  nav{padding:15px 20px}
-  .nav-menu{
-    position:absolute;
-    top:70px;
-    right:20px;
-    background:#111;
-    flex-direction:column;
-    width:180px;
-    padding:15px;
-    border-radius:12px;
-    display:none;
-  }
-  .nav-menu.show{display:flex}
-  .menu-toggle{display:block}
-}
+      /* MOBILE */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+        .nav-menu {
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          background: #111;
+          flex-direction: column;
+          width: 180px;
+          padding: 15px;
+          border-radius: 12px;
+          display: none;
+        }
+        .nav-menu.show {
+          display: flex;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
 
-/* ===== STATIS ===== */
-.statis-container{background:#111;padding:15px;text-align:center;border-top:1px solid #222;border-bottom:1px solid #222}
-.teks-diam{color:#ffd700;letter-spacing:2px;font-weight:600}
+      /* ===== STATIS ===== */
+      .statis-container {
+        background: #111;
+        padding: 15px;
+        text-align: center;
+        border-top: 1px solid #222;
+        border-bottom: 1px solid #222;
+      }
+      .teks-diam {
+        color: #ffd700;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
 
-/* ===== MARQUEE ===== */
-.marquee-container{
-  width:100%;
-  overflow:hidden;
-  border-top:2px solid #ffd700;
-  border-bottom:2px solid #ffd700;
-}
-.teks-destinasi-hitam{
-  white-space:nowrap;
-  padding-left:100%;
-  animation:marquee 25s linear infinite;
-  font-size:1.3em;
-  font-weight:bold;
-}
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-100%)}
-}
+      /* ===== MARQUEE ===== */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        border-top: 2px solid #ffd700;
+        border-bottom: 2px solid #ffd700;
+      }
+      .teks-destinasi-hitam {
+        white-space: nowrap;
+        padding-left: 100%;
+        animation: marquee 25s linear infinite;
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
 
-/* GAMBAR */
-.alam{display:flex;gap:20px;overflow-x:auto;padding:40px 20px}
-.alam img{height:250px;border-radius:15px;border:1px solid #333}
-.alam::-webkit-scrollbar{display:none}
+      /* GAMBAR */
+      .alam {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 40px 20px;
+      }
+      .alam img {
+        height: 250px;
+        border-radius: 15px;
+        border: 1px solid #333;
+      }
+      .alam::-webkit-scrollbar {
+        display: none;
+      }
 
-/* REVEAL */
-.reveal-container{padding:100px 20px;text-align:center}
-.reveal-text{opacity:0;transform:translateY(40px);transition:1.5s;font-size:1.6em;font-style:italic}
-.reveal-text.active{opacity:1;transform:translateY(0)}
+      /* REVEAL */
+      .reveal-container {
+        padding: 100px 20px;
+        text-align: center;
+      }
+      .reveal-text {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 1.5s;
+        font-size: 1.6em;
+        font-style: italic;
+      }
+      .reveal-text.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-.penutup{text-align:center;padding:40px;color:#888;border-top:1px solid #222}
-</style>
-</head>
+      .penutup {
+        text-align: center;
+        padding: 40px;
+        color: #888;
+        border-top: 1px solid #222;
+      }
+    </style>
+  </head>
 
-<body>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="welcomeModal">
-  <div class="modal-content">
-    <h2 data-key="welcome">Selamat Datang!</h2>
-    <p data-key="welcome_desc">Terima kasih telah berkunjung.</p>
-    <button class="btn-masuk" onclick="closeModal()" data-key="start">Mulai</button>
-  </div>
-</div>
-
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">
-    <img src="./elang-removebg-preview.png" alt="Logo Elang">
-  </div>
-
-  <ul class="nav-menu" id="navMenu">
-    <li><a href="#">Beranda</a></li>
-    <li><a href="#">Hubungi</a></li>
-    <li><a href="#">drift car</a></li>
-    <li><a href="#">Login</a></li>
-  </ul>
-
-  <div style="display:flex;gap:15px;align-items:center">
-    <div class="lang-switch">
-      <button id="idBtn" class="active" onclick="setLang('id')">ID</button>
-      <button id="enBtn" onclick="setLang('en')">EN</button>
+  <body>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="welcomeModal">
+      <div class="modal-content">
+        <h2 data-key="welcome">Selamat Datang!</h2>
+        <p data-key="welcome_desc">Terima kasih telah berkunjung.</p>
+        <button class="btn-masuk" onclick="closeModal()" data-key="start">
+          Mulai
+        </button>
+      </div>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="fa-solid fa-bars"></i>
+
+    <!-- NAVBAR -->
+    <nav>
+      <div class="logo">
+        <img src="./elang-removebg-preview.png" alt="Logo Elang" />
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Hubungi</a></li>
+        <li><a href="#">drift car</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+
+      <div style="display: flex; gap: 15px; align-items: center">
+        <div class="lang-switch">
+          <button id="idBtn" class="active" onclick="setLang('id')">ID</button>
+          <button id="enBtn" onclick="setLang('en')">EN</button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <div class="statis-container">
+      <span class="teks-diam" data-key="tagline"> APEXA </span>
     </div>
-  </div>
-</nav>
 
-<div class="statis-container">
-  <span class="teks-diam" data-key="tagline">
-  APEXA
-  </span>
-</div>
+    <!-- HERO -->
+    <div style="text-align: center; padding: 60px">
+      <h3 style="color: #ffd700; letter-spacing: 3px" data-key="hero_sub">
+       "Kuasai Tikungan, Taklukkan Aspal"
+      </h3>
 
-<!-- HERO -->
-<div style="text-align:center;padding:60px">
-  <h3 style="color:#ffd700;letter-spacing:3px" data-key="hero_sub">
-    MAHAKARYA ALAM INDONESIA
-  </h3>
+      <!-- LOGO ELANG BESAR -->
+      <img
+        src="./elang-removebg-preview.png"
+        width="280"
+        alt="Elang Indonesia"
+        style="margin: 40px 0; filter: drop-shadow(0 0 15px gold)"
+      />
 
-  <!-- LOGO ELANG BESAR -->
-  <img src="./elang-removebg-preview.png"
-       width="280"
-       alt="Elang Indonesia"
-       style="margin:40px 0;filter:drop-shadow(0 0 15px gold)">
+      <h1 style="font-weight: 300" data-key="hero_title">
+        " Selamat Datang di Dunia Drifting."
+      </h1>
+    </div>
 
-  <h1 style="font-weight:300" data-key="hero_title">
-    Negara Kepulauan yang Memukau Dunia
-  </h1>
-</div>
+    <div class="marquee-container">
+      <div class="teks-destinasi-hitam" data-key="marquee">
+        "inilah mobil yg cocok untuk kalian ajak drift kece suara mesin pas dan
+        murah"
+      </div>
+    </div>
+    <div class="foto">
+      <img src="./rtx.jpg" alt="" width="200px" />
+      <img src="./r7x.jpg" alt="" width="200px" />
+      <img src=".jm" alt="" width="200px" />
+    </div>
+    <div class="reveal-container">
+      <h4 class="reveal-text" id="reveal" data-key="quote">
+        "Burn rubber, not your soul."
+      </h4>
+    </div>
 
-<div class="marquee-container">
-  <div class="teks-destinasi-hitam" data-key="marquee">
-    geser untuk eksplorasi keindahan indonesia
-  </div>
-</div>
+    <div class="penutup">
+      <h4 data-key="footer">KERJASAMA AZKI × AI</h4>
+    </div>
 
-<div class="reveal-container">
-  <h4 class="reveal-text" id="reveal" data-key="quote">
-    Indonesia adalah zamrud khatulistiwa.
-  </h4>
-</div>
+    <script>
+      const text = {
+        id: {
+          welcome: "Selamat Datang!",
+          welcome_desc: "Terima kasih telah berkunjung.",
+          start: "Mulai",
+          tagline: "THE NATURAL BEAUTY OF INDONESIA — 2026",
+          hero_sub: "MAHAKARYA ALAM INDONESIA",
+          hero_title: "Negara Kepulauan yang Memukau Dunia",
+          marquee: "geser untuk eksplorasi keindahan indonesia",
+          quote: "Indonesia adalah zamrud khatulistiwa.",
+          footer: "KERJASAMA AZKI × AI",
+        },
+        en: {
+          welcome: "Welcome!",
+          welcome_desc: "Thank you for visiting.",
+          start: "Start",
+          tagline: "THE NATURAL BEAUTY OF INDONESIA — 2026",
+          hero_sub: "INDONESIA'S NATURAL MASTERPIECE",
+          hero_title: "An Archipelago That Amazes the World",
+          marquee: "scroll to explore indonesia's beauty",
+          quote: "Indonesia is the emerald of the equator.",
+          footer: "COLLABORATION AZKI × AI",
+        },
+      };
 
-<div class="penutup">
-  <h4 data-key="footer">KERJASAMA AZKI × AI</h4>
-</div>
+      function setLang(lang) {
+        document.querySelectorAll("[data-key]").forEach((el) => {
+          el.textContent = text[lang][el.dataset.key];
+        });
+        idBtn.classList.remove("active");
+        enBtn.classList.remove("active");
+        document.getElementById(lang + "Btn").classList.add("active");
+      }
 
-<script>
-const text={
- id:{
-  welcome:"Selamat Datang!",
-  welcome_desc:"Terima kasih telah berkunjung.",
-  start:"Mulai",
-  tagline:"THE NATURAL BEAUTY OF INDONESIA — 2026",
-  hero_sub:"MAHAKARYA ALAM INDONESIA",
-  hero_title:"Negara Kepulauan yang Memukau Dunia",
-  marquee:"geser untuk eksplorasi keindahan indonesia",
-  quote:"Indonesia adalah zamrud khatulistiwa.",
-  footer:"KERJASAMA AZKI × AI"
- },
- en:{
-  welcome:"Welcome!",
-  welcome_desc:"Thank you for visiting.",
-  start:"Start",
-  tagline:"THE NATURAL BEAUTY OF INDONESIA — 2026",
-  hero_sub:"INDONESIA'S NATURAL MASTERPIECE",
-  hero_title:"An Archipelago That Amazes the World",
-  marquee:"scroll to explore indonesia's beauty",
-  quote:"Indonesia is the emerald of the equator.",
-  footer:"COLLABORATION AZKI × AI"
- }
-};
+      function closeModal() {
+        document.getElementById("welcomeModal").style.display = "none";
+      }
 
-function setLang(lang){
- document.querySelectorAll("[data-key]").forEach(el=>{
-  el.textContent=text[lang][el.dataset.key];
- });
- idBtn.classList.remove("active");
- enBtn.classList.remove("active");
- document.getElementById(lang+"Btn").classList.add("active");
-}
+      function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("show");
+      }
 
-function closeModal(){
- document.getElementById("welcomeModal").style.display="none";
-}
-
-function toggleMenu(){
- document.getElementById("navMenu").classList.toggle("show");
-}
-
-window.addEventListener("scroll",()=>{
- const el=document.getElementById("reveal");
- if(el.getBoundingClientRect().top<window.innerHeight-100){
-  el.classList.add("active");
- }
-});
-</script>
-
-</body>
+      window.addEventListener("scroll", () => {
+        const el = document.getElementById("reveal");
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    </script>
+  </body>
 </html>
