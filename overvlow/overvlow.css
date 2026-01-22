@@ -1,0 +1,40 @@
+.text-1 {
+    background-color: rgb(255, 154, 3);
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.text-2{
+    background-color: rgb(255, 3, 3);
+     width: 200px;
+    height: 50px;
+    overflow: scroll; 
+}
+
+.text-3{
+    background-color: rgb(253, 9, 200);
+    width: 200px;
+    height: 50px;
+    overflow: visible;
+}
+
+.lo{
+    background-color: rgb(13, 9, 253);
+    width: 200px;
+    height: 50px;
+
+    overflow: auto;
+}
+
+
+.lol{
+    background-color: rgb(253, 9, 9);
+    width: 200px;
+    height: 50px;
+    
+    
+    overflow-y: scroll;
+    overflow-x: visible;
+}
+

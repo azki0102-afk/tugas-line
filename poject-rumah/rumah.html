@@ -3,28 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APEXA drift</title>
+    <title>APEXA Drift</title>
 
-    <!-- ===== FAVICON ELANG (SEPERTI GOOGLE) ===== -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./elang-removebg-preview.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./elang-removebg-preview.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./elang-removebg-preview.png"
-    />
+    <link rel="icon" type="image/png" href="./logdriftjpg.jpg" />
 
-    <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -41,146 +23,107 @@
         padding: 0;
         font-family: "Segoe UI", Tahoma;
       }
+
       body {
-        background: #000;
+        background:
+          radial-gradient(circle at top, rgba(0, 0, 0, 0.25), transparent 60%),
+          radial-gradient(
+            circle at bottom,
+            rgba(8, 8, 8, 0.25),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #050008, #0b0014, #000);
         color: #fff;
         overflow-x: hidden;
       }
 
-      /* ===== MODAL ===== */
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-      }
-      .modal-content {
-        background: #111;
-        padding: 40px;
-        border: 2px solid #ffd700;
-        border-radius: 20px;
-        text-align: center;
-        max-width: 450px;
-      }
-      .btn-masuk {
-        background: #ffd700;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 30px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      /* ===== NAVBAR ===== */
       nav {
-        background: #1a1a1a;
-        padding: 15px 50px;
+        background: #111;
+        padding: 15px 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         position: sticky;
         top: 0;
-        z-index: 1000;
       }
 
-      /* LOGO ELANG */
       .logo img {
         height: 40px;
-        width: auto;
-        filter: drop-shadow(0 0 6px gold);
+        filter: drop-shadow(0 0 6px rgb(255, 0, 179));
+        transition:
+          transform 0.4s ease,
+          filter 0.4s ease;
+        animation: logoGlow 2.5s infinite alternate;
       }
 
-      /* MENU */
+      .logo img:hover {
+        transform: scale(1.15) rotate(-3deg);
+        filter: drop-shadow(0 0 15px #ff0080)
+          drop-shadow(0 0 30px rgb(255, 0, 128));
+      }
+
+      @keyframes logoGlow {
+        0% {
+          filter: drop-shadow(0 0 5px #ff0062);
+        }
+        100% {
+          filter: drop-shadow(0 0 20px #ff0080)
+            drop-shadow(0 0 40px rgb(255, 0, 157));
+        }
+      }
+
       .nav-menu {
         list-style: none;
         display: flex;
-        gap: 25px;
+        gap: 20px;
       }
+
       .nav-menu a {
-        text-decoration: none;
         color: #ccc;
-        font-weight: 500;
+        text-decoration: none;
       }
 
-      /* HAMBURGER */
-      .menu-toggle {
-        display: none;
-        font-size: 1.8em;
-        cursor: pointer;
-        color: #ffd700;
-      }
-
-      /* LANGUAGE */
-      .lang-switch button {
-        background: transparent;
-        border: 1px solid #ffd700;
-        color: #ffd700;
-        padding: 6px 14px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.8em;
-      }
-      .lang-switch .active {
-        background: #ffd700;
-        color: #000;
-        font-weight: bold;
-      }
-
-      /* MOBILE */
-      @media (max-width: 768px) {
-        nav {
-          padding: 15px 20px;
-        }
-        .nav-menu {
-          position: absolute;
-          top: 70px;
-          right: 20px;
-          background: #111;
-          flex-direction: column;
-          width: 180px;
-          padding: 15px;
-          border-radius: 12px;
-          display: none;
-        }
-        .nav-menu.show {
-          display: flex;
-        }
-        .menu-toggle {
-          display: block;
-        }
-      }
-
-      /* ===== STATIS ===== */
-      .statis-container {
-        background: #111;
-        padding: 15px;
+      .hero {
         text-align: center;
-        border-top: 1px solid #222;
-        border-bottom: 1px solid #222;
-      }
-      .teks-diam {
-        color: #ffd700;
-        letter-spacing: 2px;
-        font-weight: 600;
+        padding: 60px 20px;
       }
 
-      /* ===== MARQUEE ===== */
+      .hero h3 {
+        color: #ffd700;
+        letter-spacing: 3px;
+      }
+
+      .hero img {
+        filter: drop-shadow(0 0 25px #ffd700);
+        animation: heroLogoFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes heroLogoFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
       .marquee-container {
-        width: 100%;
-        overflow: hidden;
         border-top: 2px solid #ffd700;
         border-bottom: 2px solid #ffd700;
+        overflow: hidden;
       }
-      .teks-destinasi-hitam {
+
+      .marquee-text {
         white-space: nowrap;
         padding-left: 100%;
-        animation: marquee 25s linear infinite;
-        font-size: 1.3em;
+        animation: marquee 20s linear infinite;
+        font-size: 1.2em;
         font-weight: bold;
       }
+
       @keyframes marquee {
         from {
           transform: translateX(0);
@@ -190,177 +133,292 @@
         }
       }
 
-      /* GAMBAR */
-      .alam {
+      .content {
+        max-width: 900px;
+        margin: auto;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .content p {
+        color: #ccc;
+        line-height: 1.7;
+        margin-top: 20px;
+      }
+
+      .cars {
         display: flex;
         gap: 20px;
-        overflow-x: auto;
         padding: 40px 20px;
+        overflow-x: auto;
       }
-      .alam img {
-        height: 250px;
-        border-radius: 15px;
+
+      .car-card {
+        min-width: 260px;
+        background: #111;
         border: 1px solid #333;
-      }
-      .alam::-webkit-scrollbar {
-        display: none;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
       }
 
-      /* REVEAL */
-      .reveal-container {
-        padding: 100px 20px;
-        text-align: center;
+      .car-card:hover {
+        transform: scale(1.05);
       }
-      .reveal-text {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: 1.5s;
-        font-size: 1.6em;
+
+      .car-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .car-card h4 {
+        color: #ffd700;
+        margin: 10px 0;
+      }
+
+      .car-card p {
+        color: #aaa;
+        font-size: 0.9em;
+      }
+
+      .quote {
+        text-align: center;
+        padding: 80px 20px;
         font-style: italic;
-      }
-      .reveal-text.active {
-        opacity: 1;
-        transform: translateY(0);
+        font-size: 1.5em;
+        color: #ffd700;
       }
 
-      .penutup {
+      footer {
         text-align: center;
-        padding: 40px;
-        color: #888;
+        padding: 30px;
+        color: #777;
         border-top: 1px solid #222;
+      }
+
+      .arrow {
+        position: fixed;
+        right: 30px;
+        bottom: 80px;
+        width: 60px;
+        height: 60px;
+        z-index: 999;
+      }
+
+      .draggable {
+        cursor: grab;
+      }
+
+      /* ===== POPUP SELAMAT DATANG (ALYA) ===== */
+      .welcome-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .welcome-content {
+        background: #111;
+        border: 2px solid #ff0080;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        width: 85%;
+        max-width: 320px;
+        box-shadow: 0 0 25px #ff0080;
+        animation: popupIn 0.8s ease;
+      }
+
+      .welcome-content img {
+        width: 140px;
+        margin-bottom: 10px;
+        animation: floatAlya 2.5s ease-in-out infinite;
+      }
+
+      .welcome-content h2 {
+        color: #ffd700;
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+
+      .welcome-content p {
+        color: #ccc;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+      }
+
+      .btn-close {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 10px;
+        background: #ff0080;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.9em;
+      }
+
+      @keyframes popupIn {
+        0% {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes floatAlya {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- MODAL -->
-    <div class="modal-overlay" id="welcomeModal">
-      <div class="modal-content">
-        <h2 data-key="welcome">Selamat Datang!</h2>
-        <p data-key="welcome_desc">Terima kasih telah berkunjung.</p>
-        <button class="btn-masuk" onclick="closeModal()" data-key="start">
-          Mulai
-        </button>
+    <!-- POPUP SELAMAT DATANG -->
+    <div class="welcome-modal" id="welcomeModal">
+      <div class="welcome-content">
+        <img src="./4847ee4f1aa52263a041ef659760a7c5-removebg-preview (1).png" alt="Alya" />
+        <h2>Selamat Datang!</h2>
+        <p>"Selamat menikmati website APEXA Drift".</p>
+        <button class="btn-close" onclick="closeWelcome()">Tutup</button>
       </div>
     </div>
 
     <!-- NAVBAR -->
     <nav>
       <div class="logo">
-        <img src="./elang-removebg-preview.png" alt="Logo Elang" />
+        <img src="./logdriftjpg-removebg-preview.png" alt="APEXA" />
       </div>
-
-      <ul class="nav-menu" id="navMenu">
+      <ul class="nav-menu">
         <li><a href="#">Beranda</a></li>
-        <li><a href="#">Hubungi</a></li>
-        <li><a href="#">drift car</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="#">Drift Car</a></li>
+        <li><a href="#">Tentang Drift</a></li>
+        <li><a href="#">sejarah drifting</a></li>
       </ul>
-
-      <div style="display: flex; gap: 15px; align-items: center">
-        <div class="lang-switch">
-          <button id="idBtn" class="active" onclick="setLang('id')">ID</button>
-          <button id="enBtn" onclick="setLang('en')">EN</button>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-      </div>
     </nav>
 
-    <div class="statis-container">
-      <span class="teks-diam" data-key="tagline"> APEXA </span>
-    </div>
-
     <!-- HERO -->
-    <div style="text-align: center; padding: 60px">
-      <h3 style="color: #ffd700; letter-spacing: 3px" data-key="hero_sub">
-       "Kuasai Tikungan, Taklukkan Aspal"
-      </h3>
-
-      <!-- LOGO ELANG BESAR -->
+    <section class="hero">
+      <h3>"Kuasai Tikungan, Taklukkan Aspal"</h3>
       <img
-        src="./elang-removebg-preview.png"
-        width="280"
-        alt="Elang Indonesia"
-        style="margin: 40px 0; filter: drop-shadow(0 0 15px gold)"
+        src="./logdriftjpg-removebg-preview.png"
+        class="draggable"
+        width="250"
       />
-
-      <h1 style="font-weight: 300" data-key="hero_title">
-        " Selamat Datang di Dunia Drifting."
+      <h1 style="display: flex; text-align: center; justify-content: center">
+        "Selamat Datang di Dunia Drifting"
       </h1>
-    </div>
+    </section>
 
     <div class="marquee-container">
-      <div class="teks-destinasi-hitam" data-key="marquee">
-        "inilah mobil yg cocok untuk kalian ajak drift kece suara mesin pas dan
-        murah"
+      <div class="marquee-text">
+        DRIFT • RWD • ASPAL PANAS • ASAP BAN • HIGH ANGLE • FULL THROTTLE
       </div>
     </div>
-    <div class="foto">
-      <img src="./rtx.jpg" alt="" width="200px" />
-      <img src="./r7x.jpg" alt="" width="200px" />
-      <img src=".jm" alt="" width="200px" />
-    </div>
-    <div class="reveal-container">
-      <h4 class="reveal-text" id="reveal" data-key="quote">
-        "Burn rubber, not your soul."
-      </h4>
+
+    <section class="content">
+      <h2>Apa itu Drifting?</h2>
+      <p>
+        Drifting adalah teknik mengemudi di mana mobil dikendalikan dalam
+        kondisi oversteer.
+      </p>
+    </section>
+
+    <section class="cars" style="display: flex; justify-content: center">
+      <div class="car-card">
+        <img src="./5.jpg" />
+        <h4>gr supra mk5</h4>
+        <p>Mobil drift dengan desaind modern yg seimbang .</p>
+      </div>
+      <div class="car-card">
+        <img src="./fast.jpg" />
+        <h4>Nissan Silvia S15</h4>
+        <p>Mobil drift favorit dengan keseimbangan sempurna.</p>
+      </div>
+      <div class="car-card">
+        <img src="./68jpg.jpg" />
+        <h4>Toyota AE86</h4>
+        <p>Legenda drifting Jepang.</p>
+      </div>
+      <div class="car-card">
+        <img src="./r344jpg.jpg" />
+        <h4>gtr r34</h4>
+        <p>mobil keempat yg diproduksi oleh nissan body yg elegan.</p>
+      </div>
+    </section>
+
+    <div class="quote">
+      "Drifting adalah teknik mengemudi di mana mobil dikendalikan agar meluncur
+      miring dengan ban belakang selip, tetapi tetap bisa dikendalikan saat
+      melewati tikungan."
     </div>
 
-    <div class="penutup">
-      <h4 data-key="footer">KERJASAMA AZKI × AI</h4>
+    <footer>KERJASAMA AZKI × AI</footer>
+
+    <!-- ALYA RUSIA -->
+    <div class="arrow">
+      <img src="./alya-removebg-preview.png" width="90" />
     </div>
 
     <script>
-      const text = {
-        id: {
-          welcome: "Selamat Datang!",
-          welcome_desc: "Terima kasih telah berkunjung.",
-          start: "Mulai",
-          tagline: "THE NATURAL BEAUTY OF INDONESIA — 2026",
-          hero_sub: "MAHAKARYA ALAM INDONESIA",
-          hero_title: "Negara Kepulauan yang Memukau Dunia",
-          marquee: "geser untuk eksplorasi keindahan indonesia",
-          quote: "Indonesia adalah zamrud khatulistiwa.",
-          footer: "KERJASAMA AZKI × AI",
-        },
-        en: {
-          welcome: "Welcome!",
-          welcome_desc: "Thank you for visiting.",
-          start: "Start",
-          tagline: "THE NATURAL BEAUTY OF INDONESIA — 2026",
-          hero_sub: "INDONESIA'S NATURAL MASTERPIECE",
-          hero_title: "An Archipelago That Amazes the World",
-          marquee: "scroll to explore indonesia's beauty",
-          quote: "Indonesia is the emerald of the equator.",
-          footer: "COLLABORATION AZKI × AI",
-        },
-      };
-
-      function setLang(lang) {
-        document.querySelectorAll("[data-key]").forEach((el) => {
-          el.textContent = text[lang][el.dataset.key];
-        });
-        idBtn.classList.remove("active");
-        enBtn.classList.remove("active");
-        document.getElementById(lang + "Btn").classList.add("active");
-      }
-
-      function closeModal() {
+      function closeWelcome() {
         document.getElementById("welcomeModal").style.display = "none";
       }
 
-      function toggleMenu() {
-        document.getElementById("navMenu").classList.toggle("show");
-      }
+      // Otomatis muncul saat awal buka web
+      window.onload = function () {
+        document.getElementById("welcomeModal").style.display = "flex";
+      };
 
-      window.addEventListener("scroll", () => {
-        const el = document.getElementById("reveal");
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-          el.classList.add("active");
-        }
+      // ===== BIKIN GAMBAR BISA DIGESER =====
+      const draggableImages = document.querySelectorAll(".draggable");
+      draggableImages.forEach((img) => {
+        img.addEventListener("mousedown", startDrag);
+        img.addEventListener("touchstart", startDrag);
       });
+
+      function startDrag(e) {
+        e.preventDefault();
+        const img = e.target;
+        img.style.position = "relative";
+        img.style.zIndex = 1000;
+
+        let startX = e.clientX || e.touches[0].clientX;
+        let startY = e.clientY || e.touches[0].clientY;
+
+        const rect = img.getBoundingClientRect();
+        let offsetX = startX - rect.left;
+        let offsetY = startY - rect.top;
+
+        function move(e) {
+          let x = (e.clientX || e.touches[0].clientX) - offsetX;
+          let y = (e.clientY || e.touches[0].clientY) - offsetY;
+          img.style.left = x + "px";
+          img.style.top = y + "px";
+        }
+
+        function stop() {
+          document.removeEventListener("mousemove", move);
+          document.removeEventListener("mouseup", stop);
+          document.removeEventListener("touchmove", move);
+          document.removeEventListener("touchend", stop);
+        }
+
+        document.addEventListener("mousemove", move);
+        document.addEventListener("mouseup", stop);
+        document.addEventListener("touchmove", move);
+        document.addEventListener("touchend", stop);
+      }
     </script>
   </body>
 </html>
